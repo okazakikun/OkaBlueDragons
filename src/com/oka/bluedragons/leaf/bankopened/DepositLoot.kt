@@ -6,7 +6,7 @@ import org.powbot.api.rt4.Bank
 import org.powbot.api.script.tree.Leaf
 
 
-class DepositLoot(script: Script) : Leaf<Script>(script, "Eating food") {
+class DepositLoot(script: Script) : Leaf<Script>(script, "Depositing loot") {
     override fun execute() {
         Bank.depositAllExcept(*ID_ITEMSTOKEEP)
     }

@@ -6,7 +6,7 @@ import org.powbot.api.rt4.Camera
 import org.powbot.api.rt4.Movement
 import org.powbot.api.script.tree.Leaf
 
-class OpenBank(script: Script) : Leaf<Script>(script, "Open bank") {
+class OpenBank(script: Script) : Leaf<Script>(script, "opening bank") {
     override fun execute() {
         if (Bank.inViewport()) {
             Bank.open()

@@ -8,7 +8,7 @@ import org.powbot.api.rt4.Players
 import org.powbot.api.script.tree.Branch
 import org.powbot.api.script.tree.TreeComponent
 
-class InFally(script: Script) : Branch<Script>(script, "Bank open") {
+class InFally(script: Script) : Branch<Script>(script, "In fally") {
     override val successComponent: TreeComponent<Script> = OpenBank(script)
     override val failedComponent: TreeComponent<Script> = TeleToFally(script)
 

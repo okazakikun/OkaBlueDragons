@@ -40,10 +40,7 @@ class Script : TreeScript() {
             .trackInventoryItems(*ID_LOOT)
             .trackSkill(Skill.Ranged)
             .trackSkill(Skill.Magic)
-            .trackSkill(Skill.Agility)
             .backgroundColor(Color.argb(255, 117, 124, 168))
-            .y(45)
-            .x(40)
             .build()
         addPaint(p)
     }

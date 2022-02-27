@@ -2,6 +2,7 @@ package com.oka.bluedragons.branch
 
 import com.oka.bluedragons.Constants.AREA_DRAGON_SPAWN
 import com.oka.bluedragons.Constants.AREA_DUNGEON
+import com.oka.bluedragons.Constants.AREA_LOOT
 import com.oka.bluedragons.Constants.ID_DRAGON
 import com.oka.bluedragons.Constants.ID_LOOT
 import com.oka.bluedragons.Constants.TILE_LOOT
@@ -18,7 +19,7 @@ import org.powbot.api.script.tree.Branch
 import org.powbot.api.script.tree.TreeComponent
 
 
-class FullInv(script: Script) : Branch<Script>(script, "Full inv?") {
+class FullInv(script: Script) : Branch<Script>(script, "Full inv") {
     override val successComponent: TreeComponent<Script> = InFally(script)
     override val failedComponent: TreeComponent<Script> = LootCheck(script)
 
@@ -33,12 +34,12 @@ class LootCheck(script: Script) : Branch<Script>(script, "Looting") {
 
     override fun validate(): Boolean {
         val dragon = Npcs.stream().id(ID_DRAGON).nearest().first()
-        return GroundItems.stream().id(*ID_LOOT).at(TILE_LOOT)
+        return GroundItems.stream().id(*ID_LOOT).within(AREA_LOOT)
             .isNotEmpty() && !AREA_DRAGON_SPAWN.contains(dragon.tile())
     }
 }
 
-class ShouldMove(script: Script) : Branch<Script>(script, "At safespot?") {
+class ShouldMove(script: Script) : Branch<Script>(script, "At safespot") {
     override val successComponent: TreeComponent<Script> = DragonCheck(script)
     override val failedComponent: TreeComponent<Script> = InCave(script)
 

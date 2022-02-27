@@ -9,7 +9,7 @@ import org.powbot.api.rt4.Npcs
 import org.powbot.api.script.tree.Branch
 import org.powbot.api.script.tree.TreeComponent
 
-class DragonCheck(script: Script) : Branch<Script>(script, "Dragon there?") {
+class DragonCheck(script: Script) : Branch<Script>(script, "Dragon there") {
     override val successComponent: TreeComponent<Script> = AttackDragon(script)
     override val failedComponent: TreeComponent<Script> = Chill(script)
 
