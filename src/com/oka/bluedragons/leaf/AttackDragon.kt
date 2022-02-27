@@ -10,7 +10,7 @@ import org.powbot.api.script.tree.Leaf
 class AttackDragon(script: Script) : Leaf<Script>(script, "Attacking Dragon") {
     override fun execute() {
         val dragon = Npcs.stream().id(ID_DRAGON).nearest().first()
-        if (dragon.animation() != 92 && dragon.interact("attack")) {
+        if (dragon.interact("attack")) {
             Condition.wait { Players.local().interacting() != dragon }
         }
     }

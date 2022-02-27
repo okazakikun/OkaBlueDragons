@@ -15,6 +15,6 @@ class DragonCheck(script: Script) : Branch<Script>(script, "Dragon there") {
 
     override fun validate(): Boolean {
         val dragon = Npcs.stream().id(ID_DRAGON).nearest().first()
-        return AREA_DRAGON_SPAWN.contains(dragon.tile())
+        return AREA_DRAGON_SPAWN.contains(dragon.tile()) && dragon.animation() != 92
     }
 }
