@@ -2,7 +2,6 @@ package com.oka.bluedragons.leaf
 
 import com.oka.bluedragons.Constants.AREA_LOOT
 import com.oka.bluedragons.Constants.ID_LOOT
-import com.oka.bluedragons.Constants.TILE_LOOT
 import com.oka.bluedragons.Script
 import org.powbot.api.Condition
 import org.powbot.api.rt4.Camera
@@ -19,6 +18,5 @@ class PickupLoot(script: Script) : Leaf<Script>(script, "Picking up loot") {
                 Condition.wait { allLoot.count() < lootCount }
             }
         } else Camera.turnTo(firstLoot)
-
     }
 }

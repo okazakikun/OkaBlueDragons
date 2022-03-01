@@ -2,10 +2,9 @@ package com.oka.bluedragons.branch
 
 import com.oka.bluedragons.Constants.AREA_DRAGON_SPAWN
 import com.oka.bluedragons.Constants.AREA_DUNGEON
-import com.oka.bluedragons.Constants.AREA_LOOT
+import com.oka.bluedragons.Constants.AREA_DRAGON
 import com.oka.bluedragons.Constants.ID_DRAGON
 import com.oka.bluedragons.Constants.ID_LOOT
-import com.oka.bluedragons.Constants.TILE_LOOT
 import com.oka.bluedragons.Constants.TILE_SAFESPOT
 import com.oka.bluedragons.Script
 import com.oka.bluedragons.leaf.PickupLoot
@@ -34,7 +33,7 @@ class LootCheck(script: Script) : Branch<Script>(script, "Looting") {
 
     override fun validate(): Boolean {
         val dragon = Npcs.stream().id(ID_DRAGON).nearest().first()
-        return GroundItems.stream().id(*ID_LOOT).within(AREA_LOOT)
+        return AREA_DRAGON != null && GroundItems.stream().id(*ID_LOOT).within(AREA_DRAGON!!)
             .isNotEmpty() && !AREA_DRAGON_SPAWN.contains(dragon.tile())
     }
 }
